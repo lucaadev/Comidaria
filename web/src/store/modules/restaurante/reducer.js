@@ -1,5 +1,5 @@
 import { createReducer } from '@reduxjs/toolkit';
-import types from './types';
+// import types from './types';
 
 const INITIAL_STATE = {
   data: [],
