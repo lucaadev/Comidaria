@@ -1,8 +1,8 @@
 import types from "./types";
 
-export function updateTable(table) {
+export function updateTable(payload) {
   return {
     type: types.UPDATE_TABLE,
-    table
+    payload,
   };
 }
