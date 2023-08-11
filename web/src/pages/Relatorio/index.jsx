@@ -25,7 +25,7 @@ export default function Index() {
 
 	return (
 		<div className='container-fluid overflowRelatorio'>
-			<h1 className='title  d-flex justify-content-center'>Relatorio</h1>
+			<h1 className='title mt-5 d-flex justify-content-center'>Relatório</h1>
 			<div className='mt-5'>
 				<h2 className='titleRelatorio mt-2 d-flex justify-content-start'>
 					Locais:
