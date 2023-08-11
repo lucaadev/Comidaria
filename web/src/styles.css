@@ -130,3 +130,17 @@
 .overflowRelatorio {
   overflow-y: auto;
 }
+
+.titleRelatorio {
+  font-family: 'Irish Grover';
+  color: #105B67;
+  font-size: 30px;
+  text-align: center;
+}
+
+.textRelatorio {
+  font-family: 'Irish Grover';
+  color: #1F2E67;
+  font-size: 30px;
+  text-align: center;
+}

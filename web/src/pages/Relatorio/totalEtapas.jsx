@@ -13,7 +13,7 @@ const TotalEtapas = ({ mesasCafe, mesasPub, mesasJardim, etapaIndex }) => {
 		}, 0);
 
 	return (
-		<div>
+		<div className='titleRelatorio'>
 			<h1>{totalEtapas} etapas</h1>
 		</div>
 	);
