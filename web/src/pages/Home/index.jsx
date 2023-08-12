@@ -5,7 +5,7 @@ export default function index() {
 
 	return (
 		<div className='container-fluid d-flex flex-column align-items-center p-0'>
-			<div className='row'>
+			<div className='row mt-5'>
 				<div className='col-12 mt-5 d-flex flex-column align-items-center'>
 					<h1 className='mb-5 title'>Comidaria</h1>
 					<h2 className='text'>Escadabaixo</h2>

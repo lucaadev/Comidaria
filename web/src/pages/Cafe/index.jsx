@@ -20,7 +20,7 @@ export default function Index() {
 						className='iconStyle'
 						onClick={() => window.history.back()}
 					/>
-					<div className='row'>
+					<div className='row mt-5'>
 						<div className='col-12 d-flex flex-column justify-content-center align-items-center'>
 							<h1 className='textButton ms-3 mt-3'>Café</h1>
 							<Tables
