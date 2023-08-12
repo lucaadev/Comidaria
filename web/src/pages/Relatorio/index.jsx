@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import PagePreviousIcon from '@rsuite/icons/PagePrevious';
 
 import TotalEtapas from './totalEtapas';
 
@@ -8,23 +9,24 @@ export default function Index() {
 		(state) => state.restaurante
 	);
 
-		const totalPessoasCafe = Object.values(mesasCafe).reduce((acc, mesa) => {
-			return acc + Number(mesa.quantidaDePessoas);
-		}, 0);
+	const totalPessoasCafe = Object.values(mesasCafe).reduce((acc, mesa) => {
+		return acc + Number(mesa.quantidaDePessoas);
+	}, 0);
 
-		const totalPessoasPub = Object.values(mesasPub).reduce((acc, mesa) => {
-			return acc + Number(mesa.quantidaDePessoas);
-		}, 0);
+	const totalPessoasPub = Object.values(mesasPub).reduce((acc, mesa) => {
+		return acc + Number(mesa.quantidaDePessoas);
+	}, 0);
 
-		const totalPessoasJardim = Object.values(mesasJardim).reduce(
-			(acc, mesa) => {
-				return acc + Number(mesa.quantidaDePessoas);
-			},
-			0
-		);
+	const totalPessoasJardim = Object.values(mesasJardim).reduce((acc, mesa) => {
+		return acc + Number(mesa.quantidaDePessoas);
+	}, 0);
 
 	return (
 		<div className='container-fluid overflowRelatorio'>
+			<PagePreviousIcon
+				className='iconStyle'
+				onClick={() => window.history.back()}
+			/>
 			<h1 className='title mt-5 d-flex justify-content-center'>Relatório</h1>
 			<div className='mt-5'>
 				<h2 className='titleRelatorio mt-2 d-flex justify-content-start'>

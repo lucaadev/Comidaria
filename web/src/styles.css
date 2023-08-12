@@ -144,3 +144,12 @@
   font-size: 30px;
   text-align: center;
 }
+
+.iconStyle {
+  background-color: rgba(51, 51, 51, 0.5);
+  border-radius: 25%;
+  font-size: 50px;
+  color: #FFFFFF;
+  cursor: pointer;
+  margin: 10px;
+}
