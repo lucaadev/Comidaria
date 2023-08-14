@@ -24,7 +24,7 @@ export default function Index() {
 						<div className='col-12 d-flex flex-column justify-content-center align-items-center'>
 							<h1 className='textButton ms-3 mt-3'>Pub</h1>
 							<Tables
-								Qtdmesas={[11, 12, 13, 14, 15, 16, 17, 18, 19, 20]}
+								Qtdmesas={[11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]}
 								local={'mesasPub'}
 							/>
 							<h1 className='textButton mt-3'>Total: {totalPessoas} pessoas</h1>
