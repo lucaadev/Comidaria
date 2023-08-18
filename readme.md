@@ -38,4 +38,4 @@ Contribuições são bem-vindas! Se você encontrar bugs, tiver ideias para melh
 
 ---
 
-Desenvolvido por [Lucas Cavalcante] - [https://github.com/lucaadev]
+Desenvolvido por [Lucas Cavalcante] - [GitHub](https://github.com/lucaadev)
