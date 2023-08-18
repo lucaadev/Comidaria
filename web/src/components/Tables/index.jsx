@@ -8,15 +8,15 @@ import Phases from '../Phases';
 export default function Index({ Qtdmesas, local }) {
 	const dispatch = useDispatch();
 
-	const { components, mesa, mesasCafe, mesasPub, mesasJardim } = useSelector((state) => state.restaurante);
+	const { components, mesa, mesasCafe, mesasPub, mesasJardim } = useSelector(
+		(state) => state.restaurante
+	);
 
-  const mesas = {
+	const mesas = {
 		mesasCafe: mesasCafe,
 		mesasPub: mesasPub,
 		mesasJardim: mesasJardim,
 	}[local];
-
-	console.log(mesas)
 
 	const [editingPessoas, setEditingPessoas] = useState(false);
 	const [pessoasValue, setPessoasValue] = useState(
@@ -45,7 +45,7 @@ export default function Index({ Qtdmesas, local }) {
 		setPessoasValue(event.target.value);
 	};
 
-	const etapas = [0,0,0,0,0,0,0,0];
+	const etapas = [0, 0, 0, 0, 0, 0, 0, 0];
 
 	const handleInputBlur = () => {
 		setEditingPessoas(false);
@@ -61,7 +61,6 @@ export default function Index({ Qtdmesas, local }) {
 	useEffect(() => {
 		setPessoasValue(mesa?.quantidaDePessoas || 0);
 	}, [mesa]);
-
 
 	return (
 		<>
@@ -103,7 +102,7 @@ export default function Index({ Qtdmesas, local }) {
 					<Phases
 						quantidaDePessoas={mesas[mesa?.numero]?.quantidaDePessoas || 0}
 						etapas={[1, 2, 3, 4, 5, 6, 7, 8]}
-            local={local}
+						local={local}
 					/>
 				</Drawer.Body>
 			</Drawer>
@@ -116,8 +115,8 @@ export default function Index({ Qtdmesas, local }) {
 						<button
 							className={`${
 								mesas[mesa]?.quantidaDePessoas > 0
-                ? 'tableNotAvailable'
-								: 'tableAvailable'
+									? 'tableNotAvailable'
+									: 'tableAvailable'
 							} btn btn-lg textButton`}
 							onClick={() => {
 								setComponent('drawer', true);

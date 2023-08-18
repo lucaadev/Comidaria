@@ -4,9 +4,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { updateTable } from '../../store/modules/restaurante/actions';
 
 export default function Index({ quantidaDePessoas, etapas, local }) {
-  const dispatch = useDispatch();
+	const dispatch = useDispatch();
 
-  const { mesasCafe, mesasPub, mesasJardim, mesa } = useSelector(
+	const { mesasCafe, mesasPub, mesasJardim, mesa } = useSelector(
 		(state) => state.restaurante
 	);
 
@@ -32,18 +32,33 @@ export default function Index({ quantidaDePessoas, etapas, local }) {
 		}
 	};
 
-  const setMesaInMesas = (component, state) => {
+	const setMesaInMesas = (component, state) => {
 		dispatch(updateTable({ [local]: { ...mesas, [component]: state } }));
 	};
 
-    const handleInputBlur = (index) => {
-      setMesaInMesas(mesa?.numero, {
-        ...mesas[mesa?.numero],
-				etapas: mesas[mesa?.numero]?.etapas.map((value, i) =>
+	const handleInputBlur = (index) => {
+		const mesaNumero = mesa?.numero;
+
+		if (mesaNumero !== undefined) {
+			const updatedMesa = {
+				...mesas[mesaNumero],
+				etapas: mesas[mesaNumero]?.etapas.map((value, i) =>
 					i === index ? enviadasValues[index] : value
 				),
-			});
-		};
+			};
+
+			setMesaInMesas(mesaNumero, updatedMesa);
+
+			const currentLocalStorage = JSON.parse(localStorage.getItem(local)) || {};
+			currentLocalStorage[mesaNumero] = {
+				numero: updatedMesa.numero,
+				quantidaDePessoas: updatedMesa.quantidaDePessoas,
+				etapas: [...updatedMesa.etapas],
+			};
+
+			localStorage.setItem(local, JSON.stringify(currentLocalStorage));
+		}
+	};
 
 	return (
 		<div className='container-fluid d-flex flex-wrap justify-content-center align-items-center'>
@@ -63,23 +78,25 @@ export default function Index({ quantidaDePessoas, etapas, local }) {
 						<tbody>
 							<tr>
 								<td>
-                  <label className='custom-label'>Enviadas:</label>
+									<label className='custom-label'>Enviadas:</label>
 									<input
 										type='number'
-                    className='custom-input'
-										value={ enviadasValues[index]}
+										className='custom-input'
+										value={enviadasValues[index]}
 										onChange={(e) => handleEnviadasChange(index, e)}
 										onBlur={() => handleInputBlur(index)}
-                    onKeyDown={(e) => handleInputKeyPress(index, e)}
+										onKeyDown={(e) => handleInputKeyPress(index, e)}
 									/>
 								</td>
 								<td
-                  className={`${
-                    Number(enviadasValues[index]) > quantidaDePessoas
-                      ? 'text-danger'
-                      : 'text-success'
-                  } custom-input`}
-                >{`Faltam: ${quantidaDePessoas - Number(enviadasValues[index])}`}</td>
+									className={`${
+										Number(enviadasValues[index]) > quantidaDePessoas
+											? 'text-danger'
+											: 'text-success'
+									} custom-input`}
+								>{`Faltam: ${
+									quantidaDePessoas - Number(enviadasValues[index])
+								}`}</td>
 							</tr>
 						</tbody>
 					</table>
